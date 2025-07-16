@@ -1,0 +1,100 @@
+{
+  "10": {
+    "name": "Matematika",
+    "teacher": {
+      "name": "Šebestíková Lenka",
+      "id": "UZYV1"
+    }
+  },
+  "11": {
+    "name": "Fyzika",
+    "teacher": {
+      "name": "Procházková Martina",
+      "id": "U  50"
+    }
+  },
+  "12": {
+    "name": "Chemie",
+    "teacher": {
+      "name": "Svatoňová Jana",
+      "id": "URYS9"
+    }
+  },
+  "13": {
+    "name": "Biologie",
+    "teacher": {
+      "name": "Svatoňová Jana",
+      "id": "URYS9"
+    }
+  },
+  "14": {
+    "name": "Informatika a výp. technika",
+    "teacher": {
+      "name": "Kožíšková Markéta",
+      "id": "UHITV"
+    }
+  },
+  "15": {
+    "name": "Hudební výchova",
+    "teacher": {
+      "name": "Nováková Karolina",
+      "id": "UBXXK"
+    }
+  },
+  "16": {
+    "name": "Výtvarná výchova",
+    "teacher": {
+      "name": "Paulovič Petra",
+      "id": "UXYU7"
+    }
+  },
+  "17": {
+    "name": "Tělesná výchova",
+    "teacher": {
+      "name": "Fanturová Lenka",
+      "id": "UTYSS"
+    }
+  },
+  " 2": {
+    "name": "Český jazyk",
+    "teacher": {
+      "name": "Jandová Magdalena",
+      "id": "U  47"
+    }
+  },
+  " 3": {
+    "name": "Anglický jazyk",
+    "teacher": {
+      "name": "Drozdová Renáta",
+      "id": "UZYOK"
+    }
+  },
+  "00": {
+    "name": "Španělský jazyk",
+    "teacher": {
+      "name": "Hoššo Martin",
+      "id": "UOYR0"
+    }
+  },
+  " 7": {
+    "name": "Občanská výchova",
+    "teacher": {
+      "name": "Drozdová Renáta",
+      "id": "UZYOK"
+    }
+  },
+  " 8": {
+    "name": "Dějepis",
+    "teacher": {
+      "name": "Fanta Martin",
+      "id": "UZYO0"
+    }
+  },
+  " 9": {
+    "name": "Zeměpis",
+    "teacher": {
+      "name": "Radzo David",
+      "id": "UXXG7"
+    }
+  }
+}
