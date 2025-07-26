@@ -290,8 +290,9 @@ class GoogleCalendar {
         calendarId: 'd16af1522c1855ebb3da9355190697e13ca42d8ff0033da2bee4bde70b4c0bb1@group.calendar.google.com',
         requestBody: event,
       });
+      console.log(`event ${event.summary} inserted`);
     })
-    console.log('✅ Event created:');
+    console.log('[createEvents] ✅ Event created:');
     return 200;
     console.log(res.data.htmlLink);
   }
@@ -315,6 +316,37 @@ class GoogleCalendar {
         requestBody: task
       });
       console.log('[createTask] task succesfuly inserted');
+      
+    }
+    catch (err){
+      console.error(`[createTask] ❌ Error creating task in task list "${tasklistId}": ${err.message}`);
+      throw err;
+    }
+  }
+  async createTasks(auth, tasks) {
+    const usedAuth = this.auth || auth;
+    if (!usedAuth) {
+        console.error('[createTask] No auth client available.');
+        throw new Error('No auth client available. Call login() first.');
+    }
+    const tasksApi = google.tasks({ version: 'v1', auth: usedAuth });
+    // const task = {
+    //   title: taskDetails.title,
+    //   notes: taskDetails.notes || '',
+    //   due: taskDetails.due, // This should be an RFC 3339 date-time, e.g., '2025-07-25T17:00:00.000Z'
+    //   status: taskDetails.status || 'needsAction', // Can be 'needsAction' or 'completed'
+    //   // You can also add parent, position, etc.
+    // };
+    try {
+      let tasksObject = JSON.parse(tasks)
+      tasksObject.forEach(async (task) => {
+        let res = await tasksApi.tasks.insert({
+          tasklist: 'SEVaT3Mta1hvdUhwNzNsbg',
+          requestBody: task
+        });
+      })
+
+      console.log('[createTask] tasks succesfuly inserted to SEVaT3Mta1hvdUhwNzNsbg');
       
     }
     catch (err){
