@@ -79,43 +79,7 @@ Do the response like for each day the program. And for each activity a guess tim
       return 200;
       console.log(res.data.htmlLink);
     }
-    And I have also connected google tasks api with this function:
-    async createTasks(auth, tasks) {
-      const usedAuth = this.auth || auth;
-      if (!usedAuth) {
-          console.error('[createTask] No auth client available.');
-          throw new Error('No auth client available. Call login() first.');
-      }
-      const tasksApi = google.tasks({ version: 'v1', auth: usedAuth });
-      // const task = {
-      //   title: taskDetails.title,
-      //   notes: taskDetails.notes || '',
-      //   due: taskDetails.due, // This should be an RFC 3339 date-time, e.g., '2025-07-25T17:00:00.000Z'
-      //   status: taskDetails.status || 'needsAction', // Can be 'needsAction' or 'completed'
-      //   // You can also add parent, position, etc.
-      // };
-      try {
-        let tasksObject = JSON.parse(tasks)
-        tasksObject.forEach(async (task) => {
-          let res = await tasksApi.tasks.insert({
-            tasklist: 'SEVaT3Mta1hvdUhwNzNsbg',
-            requestBody: task
-          });
-        })
-
-        console.log('[createTask] tasks succesfuly inserted to SEVaT3Mta1hvdUhwNzNsbg');
-        
-      }
-      catch (err){
-        console.error('error in creating tasks');
-        throw err;
-      }
-    }
-    So make the plan not too full so my calendar will not be overfilled. 
-    OUTPUT JUST JSON OBJECT WHERE THERE WILL BE KEY: 'calendar' 
-    AND VALUE WILL BE THE EVENTS AND ANOTHER KEY: 'tasks' WITH VALUE AS THE TASKS IN PROPER FORM.
-    Please in the tasks object include just tasks for school, like if I have some bigger test, 
-    I need to teach. Im not teaching long so just like one or two days each like 20mins. 
+    So mate the plan not too full so my calendar will not be overfilled. OUTPUT JUST THE JSON OBJECT WITH THE EVENTS. 
     nothing else please. not something like here you go: bla bla bla. And do not include the ` + "```json" + ` and ` + "```" + ` tags. Just the JSON object.
     If the plan is already created: ${JSON.stringify(eventsAI)} return JUST 'plan already created' and do not create the plan again.`;
 
@@ -125,9 +89,4 @@ const res = await client.responses.create({
 });
 
 console.log(res.output_text);
-let outputTextCalendar = JSON.parse(res.output_text).calendar
-let outputTextTasks = JSON.parse(res.output_text).tasks
-const response = await gc.createEvents(null, JSON.stringify(outputTextCalendar));
-const response2 = await gc.createTasks(null, JSON.stringify(outputTextTasks));
-console.log(response)
-console.log(response2)
+const response = await gc.createEvents(null, res.output_text);
