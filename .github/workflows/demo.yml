@@ -18,10 +18,10 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.CR_PAT }}
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository }}/weeklyp:latest .
+        run: docker build -t ghcr.io/${{ github.actor }}/weeklyp:latest .
 
       - name: Push Docker image
-        run: docker push ghcr.io/${{ github.repository }}/weeklyp:latest
+        run: docker push ghcr.io/${{ github.actor }}/weeklyp:latest
